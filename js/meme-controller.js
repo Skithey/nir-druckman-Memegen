@@ -195,13 +195,6 @@ function imgToUrl() {
     gMemeToDataUrl = elSavedMeme.toDataURL('meme.png')
 }
 
-function onOpenShareModal() {
-    imgToUrl()
-    elShareModal = document.querySelector('.share-modal')
-    elShareModal.style.display = 'block'
-    elShareSpace = document.querySelector('.share-container')
-    elShareSpace.innerHTML = `  <button type="submit" href="https://www.facebook.com/sharer/sharer.php?u=${gUploadedImgUrl}&t=${gUploadedImgUrl}" title="Share on Facebook" class="share-btn-modal btn-modal" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${gUploadedImgUrl}&t=${gUploadedImgUrl}'); return false;">share</button>`
-}
 
 function downloadImg(elLink) {
     imgToUrl()

@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memegen</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+
+
+</head>
+
+<body onload="init()">
+
+    <div class="screen" onclick="toggleMenu()"></div>
+
+    <header class="main-header">
+        <div class="main-header-container container flex space-between align-center">
+            <div class="logo"><img src="/imgs/memgen.png" alt=""></div>
+            <button class="btn-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></button >
+                <div class="slider">
+
+                    <ul class="main-nav flex clean-list">
+                        <li onclick="onOpenMemes()">
+                            <a  href="#">Memes</a>
+                        </li>
+                        <li class="line"></li>
+                        <li>
+                            <a href="">Gallery</a>
+                        </li>
+                        <li class="line"></li>
+                        <li>
+                            <a href="">About</a>
+                        </li>
+                    </ul>
+                </div>
+        </div>
+    </header>
+
+    <section class="search-container">
+        <div class=" container search-bar  flex space-between">
+            <div class="search-row">
+                <input type="search" class="search-input" placeholder="Enter search keyword" oninput="onSearchKeyword()">
+                <img class="search-button" src="/imgs/search-icon.png" alt="">
+            </div>
+
+
+            <ul class="search-words flex">
+                <li>
+                    <a href="" class="funny">funny</a>
+                </li>
+                <li>
+                    <a href="" class="comics">comics</a>
+                </li>
+                <li class="dogs">
+                    <a href="">dogs</a>
+                </li>
+                <li class="extra-words">
+                    <a href="">drinks</a>
+                </li>
+                <li class="extra-words">
+                    <a href="">books</a>
+                </li>
+                <li>
+                    <a href="">more...</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    </div>
+    <main class="main-cards-container">
+        <div class="card-container container grid gallery-grid">
+
+        </div>
+    </main>
+
+    <div class="saved-memes " hidden>
+        <section class="saved-memes-imgs container grid "></section>
+        <p class="saved-memes-section ">
+
+        </p>
+    </div>
+
+    <div class="modal" hidden>
+        <div class="modal-container container flex">
+            <canvas id="my-canvas" height=" 545" width="552"></canvas>
+            <div class="change-buttons grid ">
+                <input type="text" oninput="onInputTxt()" class="meme-text editor " placeholder="write on the img">
+
+                <button class="increase editor meme-btn " onclick="onChangeSize(5)"><img src="/imgs/ICONS/increase font - icon.png" height="38px" width="39px"alt=""></button>
+
+            <button class="decrease editor meme-btn" onclick="onChangeSize(-5)"><img src="/imgs/ICONS/decrease font - icon.png" height="38px" width="39px"alt=""></button>
+
+            <button class="remove  editor meme-btn"><img src="/imgs/ICONS/trash.png" height="38px" width="39px"alt=""></button>
+
+            <button class="empty editor meme-btn">empty</button>
+
+            <select type="select" class="impact editor ">
+                    <option value="">option 1</option>
+                    <option value="">option 2</option>
+                    <option value="">option 3</option>
+                </select>
+
+            <button class="frame-color editor meme-btn"><img src="/imgs/ICONS/text stroke.png" height="38px" width="39px"alt=""></button>
+
+            <button class="text-color  editor meme-btn"><img src="/imgs/ICONS/paint-board-and-brush.png" height="38px" width="39px"alt=""></button>
+
+            <input type="text" class="stickers editor ">
+
+
+            <button class="txt-up editor meme-btn" onclick="onMoveTxt(-5)"><i class="fas fa-arrow-up"></i></button>
+
+            <button class="txt-down editor meme-btn" onclick="onMoveTxt(5)"> <i class="fas fa-arrow-down"></i></button>
+
+            <button class="add-line editor meme-btn" onclick="onAddLine()"><img src="/imgs/ICONS/add.png" height="38px" width="39px"alt=""></button>
+
+            <button class="switch-line editor meme-btn" onclick="onSwitchLine()"><img src="/imgs/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" height="38px" width="39px"alt=""></button>
+
+            <button class="save special-btns" onclick="onSaveMeme()">Save</button>
+            <button class="download special-btns ">Download</button>
+            <button class="share special-btns " onclick="onOpenShareModal()">Share</button>
+            <div class="share-modal flex">
+                <form class="share-space" action="" method="POST" enctype="multipart/form-data" onsubmit="onUploadImg(this,ev)">
+
+                </form>
+                <a href="" download="meme.png" class="download-btn-modal btn-modal" onclick="downloadImg(this)">download</a>
+            </div>
+        </div>
+        </div>
+        </div>
+
+
+
+        <section class="info-section container">
+            <div class="info-container  flex ">
+                <div class="profile-pic">
+                    <img src="/imgs/alina-kovalchuk-Cd7dYdJKIKk-unsplash.png" alt="">
+                </div>
+
+                <div class="profile-info">
+                    <h2>Monica Geller</h2>
+                    <p>is a fictional character, one of the six main characters who appears on the American sitcom Friends </p>
+
+                    <ul class="social-nav flex">
+                        <li>
+                            <a href="facebook"><i class="fab fa-linkedin-in"></i></a>
+                        </li>
+                        <li>
+                            <a href="linkedin"><i class="fab fa-facebook-f"></i></a>
+                        </li>
+                        <li>
+                            <a href="github"><i class="fab fa-github"></i></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="logo"><img src="/imgs/memgen.png" alt=""></div>
+                <div class="rights">all rights reserved 2019</div>
+            </div>
+        </footer>
+
+
+
+
+        <script src="js/storage-service.js"></script>
+        <script src="js/meme-service.js"></script>
+        <script src="js/meme-controller.js"></script>
+</body>
+
+</html>

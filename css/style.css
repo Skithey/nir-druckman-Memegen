@@ -291,6 +291,13 @@ ul {
     outline: none;
 }
 
+.color-input {
+    width: 20px;
+    height: 20px;
+    /* opacity: 0; */
+    z-index: 3;
+}
+
 .meme-btn:hover {
     cursor: pointer;
     background-color: rgb(175, 255, 255);
@@ -414,6 +421,9 @@ ul {
 }
 
 .share {
+    width: 96px;
+    height: 50px;
+    justify-content: center;
     grid-column: 8/-1;
     grid-row: 16/-1;
     border-radius: 12px;
@@ -423,6 +433,80 @@ ul {
     color: white;
     font-size: 20px;
     font-weight: 500;
+}
+
+.share-modal-btn {
+    justify-content: center;
+    grid-column: 8/-1;
+    grid-row: 16/-1;
+    border-radius: 12px;
+    outline: none;
+    border: none;
+    background-color: #ff7f00;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.share-fb {
+    background-color: #ff7f00;
+    color: white;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    width: 96px;
+    height: 50px;
+    border-radius: 12px;
+}
+
+.share-container:hover {
+    cursor: default;
+}
+
+.screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity .8s;
+}
+
+.close-share:hover {
+    background-color: rgb(158, 0, 0);
+    color: white;
+    transition: .3s;
+}
+
+.close-share {
+    width: 30px;
+    padding-bottom: 2px;
+    font-size: 20px;
+    font-weight: 600;
+    border: none;
+    outline: none;
+    background-color: #c2c2c2;
+    border-radius: 12px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+}
+
+.share-container {
+    border-radius: 12px;
+    display: none;
+    background-color: #c2c2c2;
+    height: 200px;
+    position: absolute;
+    top: 200px;
+    right: 500px;
+    width: 400px;
+    text-align: center;
+    padding: 20px;
 }
 
 .special-btns:hover {
@@ -746,5 +830,23 @@ ul {
         color: white;
         font-size: 20px;
         font-weight: 500;
+    }
+    .share-modal-btn {
+        grid-column: 8/-1;
+        grid-row: 11/-1;
+        border-radius: 12px;
+        outline: none;
+        border: none;
+        background-color: #ff7f00;
+        color: white;
+        font-size: 20px;
+        font-weight: 500;
+    }
+    .share-container {
+        top: 200px;
+        left: 30%;
+        width: 400px;
+        text-align: center;
+        padding: 20px;
     }
 }

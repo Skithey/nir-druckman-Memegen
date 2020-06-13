@@ -13,13 +13,15 @@
 
 <body onload="init()">
 
-    <div class="screen" onclick="toggleMenu()"></div>
+
+
+    <div class="screen"></div>
 
     <header class="main-header">
         <div class="main-header-container container flex space-between align-center">
             <div class="logo"><img src="./imgs/memgen.png" alt=""></div>
             <button class="btn-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></button >
-                <div class="slider">
+                
 
                     <ul class="main-nav flex clean-list">
                         <li onclick="onOpenMemes()">
@@ -101,9 +103,15 @@
             <button class="text-right editor meme-btn" onclick="onChangeAlign('left')"><img src="./imgs/ICONS/align-to-right.png" height="38px" width="39px" alt=""></button>
             <button class="text-center editor meme-btn" onclick="onChangeAlign('center')"><img src="./imgs/ICONS/center-text-alignment.png" height="38px" width="39px" alt=""></button>
 
-            <button class="frame-color editor meme-btn"><img src="./imgs/ICONS/text stroke.png" height="38px" width="39px"alt=""></button>
+            <button class="frame-color editor meme-btn">
+                <input type="color" name ="border-color" class="border-color color-input" oninput="onChangeStroke()" >
+                <img src="./imgs/ICONS/text stroke.png" height="30px" width="30px"alt=""> 
+        </button>
 
-            <button class="text-color  editor meme-btn"><img src="./imgs/ICONS/paint-board-and-brush.png" height="38px" width="39px"alt=""></button>
+            <button class="text-color  editor meme-btn">
+                <input type="color" name="txt-color" class="txt-color color-input"  oninput="onChangeTxtColor()" >
+                <img src="./imgs/ICONS/paint-board-and-brush.png" height="30px" width="30px"alt="">
+        </button>
 
             <input type="text" class="stickers editor ">
 
@@ -118,8 +126,20 @@
 
             <button class="save special-btns" onclick="onSaveMeme()">Save</button>
             <a href="" download="meme.png" class="download special-btns" onclick="downloadImg(this)">download</a>
-            <button class="share special-btns ">Share</button>
+
+
+            <form class="form-share share-modal-btn flex " action="" method="POST" enctype="multipart/form-data" onsubmit="onUploadImg(this, event)">
+                <button class="share special-btns" type="submit">Share</button>
+                <div class="share-container ">
+                    <div class="close-share" onclick="OnCloseShare()">x</div>
+                    <p>are you sure?</p>
+                    <p class="share-area"></p>
+                </div>
+            </form>
+            <!-- <button class="share special-btns " onclick="OnShareImg()">Share</button> -->
+            <div class="share-container"></div>
             <!-- <button class="share special-btns " onclick="onOpenShareModal()">Share</button> -->
+
 
         </div>
         </div>

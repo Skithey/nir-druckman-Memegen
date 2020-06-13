@@ -1,5 +1,6 @@
 'use script'
 
+var isOpen = false
 var gElCanvas;
 var gCtx;
 var gMeme = getMeme();
@@ -17,8 +18,17 @@ function init() {
     gCtx.fillRect(0, 0, gElCanvas.width, gElCanvas.height);
 }
 
+
 function toggleMenu() {
-    document.body.classList.toggle('menu-open');
+    isOpen = !isOpen
+    var elSlider = document.querySelector('.slider')
+    elSlider.classList.toggle('menu-open');
+    //     var elHam = document.querySelector('.hamburger');
+    //     if (isOpen) {
+    //         elHam.innerText = 'x'
+    //     } else {
+    //         elHam.innerText = '☰'
+    //     }
 }
 
 function RenderCards() {;
@@ -46,6 +56,7 @@ function drawImgFromlocal() {
 
 function drawText(text, x, y, idx) {
     gCtx.font = gMeme.lines[idx].size + 'px san serif';
+    gCtx.strokeStyle = gMeme.lines[idx].borderColor
     gCtx.fillStyle = gMeme.lines[idx].color;
     gCtx.textAlign = gMeme.lines[idx].align;
     gCtx.fillText(text, x, y);
@@ -198,21 +209,29 @@ function downloadImg(elLink) {
 
 }
 
+
+
+
+
 function onUploadImg(elForm, ev) {
-
-
     ev.preventDefault()
+
     imgToUrl()
-    console.log(gMemeToDataUrl)
+    var elShareContainer = document.querySelector('.share-container');
+    elShareContainer.style.display = 'block'
+        // console.log(gMemeToDataUrl)
 
 
-    // function onSuccess(uploadUrl) {
-    //     uploadUrl = encodeURIComponent(uploadUrl);
-
+    function onSuccess(uploadedImgUrl) {
+        uploadedImgUrl = encodeURIComponent(uploadedImgUrl);
+        var elShareArea = document.querySelector('.share-area')
+        elShareArea.innerHTML = `
+        <button class="share-fb special-btns share-link" href="https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}"   title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=${uploadedImgUrl}&t=${uploadedImgUrl}'); return false;">
+           Share 
+        </button>`
+    }
+    doUploadImg(elForm, onSuccess);
 }
-// doUploadImg(elForm, onSuccess);
-
-
 
 
 function doUploadImg(elForm, onSuccess) {
@@ -228,6 +247,20 @@ function doUploadImg(elForm, onSuccess) {
         .catch(function(err) {
             console.error(err)
         })
+        // document.body.classList.toggle('menu-open');
+    var elScreen = document.querySelector('.screen')
+    elScreen.style.visibility = 'visible'
+    elScreen.style.opacity = '1'
+
+}
+
+function OnCloseShare() {
+    var elShareContainer = document.querySelector('.share-container');
+    elShareContainer.style.display = 'none'
+        // document.body.classList.toggle('menu-open');
+    var elScreen = document.querySelector('.screen')
+    elScreen.style.visibility = 'hidden'
+    elScreen.style.opacity = '0'
 }
 
 function onRemoveTxt() {
@@ -239,4 +272,14 @@ function onChangeAlign(pos) {
     changeAlign(pos)
     drawImgFromlocal()
 
+}
+
+function onChangeStroke() {
+    changeStroke()
+    drawImgFromlocal()
+}
+
+function onChangeTxtColor() {
+    changeTxtColor()
+    drawImgFromlocal()
 }

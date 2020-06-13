@@ -109,6 +109,7 @@ var gMeme = {
         color: 'white',
         x: 250,
         y: 70,
+        borderColor: 'black'
     }]
 }
 
@@ -150,6 +151,7 @@ function addLine() {
             color: 'white`',
             x: 250,
             y: 70,
+            borderColor: 'black'
         })
     } else if (gMeme.lines.length === 1) {
         gMeme.lines.push({
@@ -159,6 +161,7 @@ function addLine() {
             color: 'white`',
             x: 250,
             y: 400,
+            borderColor: 'black'
         })
     } else {
         gMeme.lines.push({
@@ -168,6 +171,7 @@ function addLine() {
             color: 'white`',
             x: 250,
             y: 250,
+            borderColor: 'black'
         })
     }
     var memeTxt = document.querySelector('.meme-text');
@@ -232,4 +236,14 @@ function removeTxt() {
 function changeAlign(pos) {
 
     gMeme.lines[gMeme.selectedLineIdx].align = pos
+}
+
+function changeStroke() {
+    var elBorderColor = document.querySelector('[name=border-color]')
+    gMeme.lines[gMeme.selectedLineIdx].borderColor = elBorderColor.value
+}
+
+function changeTxtColor() {
+    var elTxtColor = document.querySelector('[name=txt-color]')
+    gMeme.lines[gMeme.selectedLineIdx].color = elTxtColor.value
 }

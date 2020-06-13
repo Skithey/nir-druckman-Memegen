@@ -104,7 +104,7 @@ var gMeme = {
     lines: [{
         id: id++,
         txt: 'Write your text!',
-        size: '40px impacts',
+        size: 40,
         align: 'center',
         color: 'white',
         x: 250,
@@ -136,7 +136,7 @@ function inputTxt() {
 }
 
 function changeSize(diff) {
-
+    console.log(gMeme.lines[gMeme.selectedLineIdx].size);
 
     gMeme.lines[gMeme.selectedLineIdx].size += diff;
 }

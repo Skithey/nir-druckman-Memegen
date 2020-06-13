@@ -292,6 +292,7 @@ ul {
 }
 
 .meme-btn:hover {
+    cursor: pointer;
     background-color: rgb(175, 255, 255);
     transition: .3s;
 }
@@ -392,6 +393,9 @@ ul {
 }
 
 .download {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     grid-column: 4/8;
     grid-row: 16/-1;
     border-radius: 12px;

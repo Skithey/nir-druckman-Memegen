@@ -119,13 +119,13 @@
             <button class="switch-line editor meme-btn" onclick="onSwitchLine()"><img src="/imgs/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" height="38px" width="39px"alt=""></button>
 
             <button class="save special-btns" onclick="onSaveMeme()">Save</button>
-            <button class="download special-btns ">Download</button>
+            <a href="" download="meme.png" class="download special-btns" onclick="downloadImg(this)">download</a>
             <button class="share special-btns " onclick="onOpenShareModal()">Share</button>
             <div class="share-modal flex">
                 <form class="share-space" action="" method="POST" enctype="multipart/form-data" onsubmit="onUploadImg(this,ev)">
 
                 </form>
-                <a href="" download="meme.png" class="download-btn-modal btn-modal" onclick="downloadImg(this)">download</a>
+
             </div>
         </div>
         </div>

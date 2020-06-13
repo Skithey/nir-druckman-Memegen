@@ -45,7 +45,7 @@ function drawImgFromlocal() {
 
 
 function drawText(text, x, y, idx) {
-    gCtx.font = gMeme.lines[idx].size;
+    gCtx.font = gMeme.lines[idx].size + 'px impacts';
     gCtx.fillStyle = gMeme.lines[idx].color;
     gCtx.textAlign = gMeme.lines[idx].align;
     gCtx.fillText(text, x, y);

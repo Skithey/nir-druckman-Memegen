@@ -142,14 +142,34 @@ function changeSize(diff) {
 }
 
 function addLine() {
-    gMeme.lines.push({
-        txt: 'Write your text!',
-        size: 40,
-        align: 'center',
-        color: 'white`',
-        x: 250,
-        y: 400,
-    })
+    if (gMeme.lines.length === 0) {
+        gMeme.lines.push({
+            txt: 'Write your text!',
+            size: 40,
+            align: 'center',
+            color: 'white`',
+            x: 250,
+            y: 70,
+        })
+    } else if (gMeme.lines.length === 1) {
+        gMeme.lines.push({
+            txt: 'Write your text!',
+            size: 40,
+            align: 'center',
+            color: 'white`',
+            x: 250,
+            y: 400,
+        })
+    } else {
+        gMeme.lines.push({
+            txt: 'Write your text!',
+            size: 40,
+            align: 'center',
+            color: 'white`',
+            x: 250,
+            y: 250,
+        })
+    }
     var memeTxt = document.querySelector('.meme-text');
     memeTxt.value = '';
     memeTxt.focus();
@@ -196,4 +216,20 @@ function saveMeme(memeToDataUrl) {
 
     gSavedMemes.push(memeToDataUrl)
     saveToStorage(SAVED_MEME, gSavedMemes)
+}
+
+
+function removeTxt() {
+
+    gMeme.lines.splice(gMeme.selectedLineIdx, 1)
+    gMeme.selectedLineIdx--
+
+        if (gMeme.selectedLineIdx < 0)
+            gMeme.selectedLineIdx = 0
+    console.log(gMeme.selectedLineIdx)
+}
+
+function changeAlign(pos) {
+
+    gMeme.lines[gMeme.selectedLineIdx].align = pos
 }

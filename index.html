@@ -17,7 +17,7 @@
 
     <header class="main-header">
         <div class="main-header-container container flex space-between align-center">
-            <div class="logo"><img src="/imgs/memgen.png" alt=""></div>
+            <div class="logo"><img src="./imgs/memgen.png" alt=""></div>
             <button class="btn-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></button >
                 <div class="slider">
 
@@ -89,23 +89,21 @@
             <div class="change-buttons grid ">
                 <input type="text" oninput="onInputTxt()" class="meme-text editor " placeholder="write on the img">
 
-                <button class="increase editor meme-btn " onclick="onChangeSize(5)"><img src="/imgs/ICONS/increase font - icon.png" height="38px" width="39px"alt=""></button>
+                <button class="increase editor meme-btn " onclick="onChangeSize(5)"><img src="./imgs/ICONS/increase font - icon.png" height="38px" width="39px"alt=""></button>
 
-            <button class="decrease editor meme-btn" onclick="onChangeSize(-5)"><img src="/imgs/ICONS/decrease font - icon.png" height="38px" width="39px"alt=""></button>
+            <button class="decrease editor meme-btn" onclick="onChangeSize(-5)"><img src="./imgs/ICONS/decrease font - icon.png" height="38px" width="39px"alt=""></button>
 
-            <button class="remove  editor meme-btn"><img src="/imgs/ICONS/trash.png" height="38px" width="39px"alt=""></button>
+            <button class="remove  editor meme-btn" onclick="onRemoveTxt()"><img src="./imgs/ICONS/trash.png" height="38px" width="39px"alt=""></button>
 
-            <button class="empty editor meme-btn">empty</button>
+            <!-- <button class="empty editor meme-btn">empty</button> -->
 
-            <select type="select" class="impact editor ">
-                    <option value="">option 1</option>
-                    <option value="">option 2</option>
-                    <option value="">option 3</option>
-                </select>
+            <button class="text-left editor meme-btn" onclick="onChangeAlign('right')"><img src="./imgs/ICONS/align-to-left.png" height="38px" width="39px" alt=""></button>
+            <button class="text-right editor meme-btn" onclick="onChangeAlign('left')"><img src="./imgs/ICONS/align-to-right.png" height="38px" width="39px" alt=""></button>
+            <button class="text-center editor meme-btn" onclick="onChangeAlign('center')"><img src="./imgs/ICONS/center-text-alignment.png" height="38px" width="39px" alt=""></button>
 
-            <button class="frame-color editor meme-btn"><img src="/imgs/ICONS/text stroke.png" height="38px" width="39px"alt=""></button>
+            <button class="frame-color editor meme-btn"><img src="./imgs/ICONS/text stroke.png" height="38px" width="39px"alt=""></button>
 
-            <button class="text-color  editor meme-btn"><img src="/imgs/ICONS/paint-board-and-brush.png" height="38px" width="39px"alt=""></button>
+            <button class="text-color  editor meme-btn"><img src="./imgs/ICONS/paint-board-and-brush.png" height="38px" width="39px"alt=""></button>
 
             <input type="text" class="stickers editor ">
 
@@ -114,19 +112,16 @@
 
             <button class="txt-down editor meme-btn" onclick="onMoveTxt(5)"> <i class="fas fa-arrow-down"></i></button>
 
-            <button class="add-line editor meme-btn" onclick="onAddLine()"><img src="/imgs/ICONS/add.png" height="38px" width="39px"alt=""></button>
+            <button class="add-line editor meme-btn" onclick="onAddLine()"><img src="./imgs/ICONS/add.png" height="38px" width="39px"alt=""></button>
 
-            <button class="switch-line editor meme-btn" onclick="onSwitchLine()"><img src="/imgs/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" height="38px" width="39px"alt=""></button>
+            <button class="switch-line editor meme-btn" onclick="onSwitchLine()"><img src="./imgs/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" height="38px" width="39px"alt=""></button>
 
             <button class="save special-btns" onclick="onSaveMeme()">Save</button>
             <a href="" download="meme.png" class="download special-btns" onclick="downloadImg(this)">download</a>
-            <button class="share special-btns " onclick="onOpenShareModal()">Share</button>
-            <div class="share-modal flex">
-                <form class="share-space" action="" method="POST" enctype="multipart/form-data" onsubmit="onUploadImg(this,ev)">
+            <button class="share special-btns ">Share</button>
+            <!-- <button class="share special-btns " onclick="onOpenShareModal()">Share</button> -->
 
-                </form>
-
-            </div>
+        </div>
         </div>
         </div>
         </div>
@@ -136,7 +131,7 @@
         <section class="info-section container">
             <div class="info-container  flex ">
                 <div class="profile-pic">
-                    <img src="/imgs/alina-kovalchuk-Cd7dYdJKIKk-unsplash.png" alt="">
+                    <img src="./imgs/alina-kovalchuk-Cd7dYdJKIKk-unsplash.png" alt="">
                 </div>
 
                 <div class="profile-info">
@@ -160,7 +155,7 @@
 
         <footer class="main-footer">
             <div class="footer-container">
-                <div class="logo"><img src="/imgs/memgen.png" alt=""></div>
+                <div class="logo"><img src="imgs/memgen.png" alt=""></div>
                 <div class="rights">all rights reserved 2019</div>
             </div>
         </footer>

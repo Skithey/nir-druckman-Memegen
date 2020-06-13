@@ -45,7 +45,7 @@ function drawImgFromlocal() {
 
 
 function drawText(text, x, y, idx) {
-    gCtx.font = gMeme.lines[idx].size + 'px impacts';
+    gCtx.font = gMeme.lines[idx].size + 'px san serif';
     gCtx.fillStyle = gMeme.lines[idx].color;
     gCtx.textAlign = gMeme.lines[idx].align;
     gCtx.fillText(text, x, y);
@@ -228,4 +228,15 @@ function doUploadImg(elForm, onSuccess) {
         .catch(function(err) {
             console.error(err)
         })
+}
+
+function onRemoveTxt() {
+    removeTxt()
+    drawImgFromlocal()
+}
+
+function onChangeAlign(pos) {
+    changeAlign(pos)
+    drawImgFromlocal()
+
 }

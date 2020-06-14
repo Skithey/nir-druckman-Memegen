@@ -17,27 +17,29 @@
 
     <div class="screen"></div>
 
+    <div class="gallery-screen" onclick="toggleMenu()"></div>
+
     <header class="main-header">
         <div class="main-header-container container flex space-between align-center">
             <div class="logo"><img src="./imgs/memgen.png" alt=""></div>
             <button class="btn-menu" onclick="toggleMenu()"><i class="fas fa-bars"></i></button >
                 
-<div class="slider">
+
                     <ul class="main-nav flex clean-list">
-                        <li onclick="onOpenMemes()">
-                            <a  href="#">Memes</a>
+                        <li class ="btns first" onclick="onOpenMemes()">
+                            <a   href="#">Memes</a>
+                        </li>
+                        <li ></li>
+                        <li class="btns">
+                            <a class="as" href="">Gallery</a>
                         </li>
                         <li class="line"></li>
-                        <li>
-                            <a href="">Gallery</a>
-                        </li>
-                        <li class="line"></li>
-                        <li>
-                            <a href="">About</a>
+                        <li class="btns">
+                            <a class="as" href="#">About</a>
                         </li>
                     </ul>
                 </div>
-        </div>
+      
     </header>
 
     <section class="search-container">
@@ -91,38 +93,64 @@
             <div class="change-buttons grid ">
                 <input type="text" oninput="onInputTxt()" class="meme-text editor " placeholder="write on the img">
 
-                <button class="increase editor meme-btn " onclick="onChangeSize(5)"><img src="./imgs/ICONS/increase font - icon.png" height="38px" width="39px"alt=""></button>
+                <!-- <button class="increase editor meme-btn " onclick="onChangeSize(5)"><img src="./imgs/ICONS/increase font - icon.png" height="38px" width="39px"alt=""></button>
 
-            <button class="decrease editor meme-btn" onclick="onChangeSize(-5)"><img src="./imgs/ICONS/decrease font - icon.png" height="38px" width="39px"alt=""></button>
-
+            <button class="decrease editor meme-btn" onclick="onChangeSize(-5)"><img src="./imgs/ICONS/decrease font - icon.png" height="38px" width="39px"alt=""></button> -->
+            <div class="font-size-editor editor meme-btn flex">
+                <input type="range" class="font-input " min="30" max="80" value="40" oninput="onChangeSize(this.value)">
+                <span class="font-size">40</span>
+            </div>
             <button class="remove  editor meme-btn" onclick="onRemoveTxt()"><img src="./imgs/ICONS/trash.png" height="38px" width="39px"alt=""></button>
 
-            <!-- <button class="empty editor meme-btn">empty</button> -->
+            <div class="font-family editor flex">
+                <select name="font-family" class="font-family-input editor" id="" oninput="onChangeFontFamily(value)">
+                    <option value="impact">impact</option>
+                    <option value="Arial">Arial</option>
+                    <option value="monster">monster</option>
+                    <option value="monospace">monospace</option>
+                 </select>
+            </div>
 
-            <button class="text-left editor meme-btn" onclick="onChangeAlign('right')"><img src="./imgs/ICONS/align-to-left.png" height="38px" width="39px" alt=""></button>
-            <button class="text-right editor meme-btn" onclick="onChangeAlign('left')"><img src="./imgs/ICONS/align-to-right.png" height="38px" width="39px" alt=""></button>
-            <button class="text-center editor meme-btn" onclick="onChangeAlign('center')"><img src="./imgs/ICONS/center-text-alignment.png" height="38px" width="39px" alt=""></button>
+            <button class="text-left editor meme-btn" onclick="onChangeAlign('right')">
+                <img src="./imgs/ICONS/align-to-left.png" height="38px" width="39px" alt="">
+            </button>
+
+            <button class="text-right editor meme-btn" onclick="onChangeAlign('left')">
+                <img src="./imgs/ICONS/align-to-right.png" height="38px" width="39px" alt="">
+            </button>
+
+            <button class="text-center editor meme-btn" onclick="onChangeAlign('center')">
+                <img src="./imgs/ICONS/center-text-alignment.png" height="38px" width="39px" alt="">
+            </button>
 
             <button class="frame-color editor meme-btn">
                 <input type="color" name ="border-color" class="border-color color-input" oninput="onChangeStroke()" >
                 <img src="./imgs/ICONS/text stroke.png" height="30px" width="30px"alt=""> 
         </button>
 
-            <button class="text-color  editor meme-btn">
+            <button class="text-color  editor meme-btn ">
                 <input type="color" name="txt-color" class="txt-color color-input"  oninput="onChangeTxtColor()" >
-                <img src="./imgs/ICONS/paint-board-and-brush.png" height="30px" width="30px"alt="">
+                <img src="./imgs/ICONS/paint-board-and-brush.png" height="40px" width="40px"alt="">
         </button>
 
             <input type="text" class="stickers editor ">
 
 
-            <button class="txt-up editor meme-btn" onclick="onMoveTxt(-5)"><i class="fas fa-arrow-up"></i></button>
+            <button class="txt-up editor meme-btn" onclick="onMoveTxt(-5)">
+                <i class="fas fa-arrow-up">
+                </i></button>
 
-            <button class="txt-down editor meme-btn" onclick="onMoveTxt(5)"> <i class="fas fa-arrow-down"></i></button>
+            <button class="txt-down editor meme-btn" onclick="onMoveTxt(5)"> 
+                <i class="fas fa-arrow-down"></i>
+            </button>
 
-            <button class="add-line editor meme-btn" onclick="onAddLine()"><img src="./imgs/ICONS/add.png" height="38px" width="39px"alt=""></button>
+            <button class="add-line editor meme-btn" onclick="onAddLine()">
+                <img src="./imgs/ICONS/add.png" height="38px" width="39px"alt="">
+            </button>
 
-            <button class="switch-line editor meme-btn" onclick="onSwitchLine()"><img src="./imgs/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" height="38px" width="39px"alt=""></button>
+            <button class="switch-line editor meme-btn" onclick="onSwitchLine()">
+                <img src="./imgs/ICONS/up-and-down-opposite-double-arrows-side-by-side.png" height="38px" width="39px"alt="">
+            </button>
 
             <button class="save special-btns" onclick="onSaveMeme()">Save</button>
             <a href="" download="meme.png" class="download special-btns" onclick="downloadImg(this)">download</a>
